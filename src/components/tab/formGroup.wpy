@@ -1,0 +1,29 @@
+<template>
+  <view>
+    <input type="idcard" v-module="aa" placeholder="身份证输入键盘" bindinput="bindReplaceInput" />
+    <button type="primary" @tap="confirm"> 确定 </button>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class FormGroup extends wepy.component {
+
+    data = {
+      aa:'123'
+    }
+
+    methods = {
+      confirm(){
+        this.$emit('childFn', this.aa);
+      },
+      bindReplaceInput(e){
+        this.aa = e.detail.value
+      }
+    }
+  }
+</script>
+
+<style lang="less">
+
+</style>

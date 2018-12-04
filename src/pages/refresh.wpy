@@ -1,0 +1,54 @@
+<template>
+  <view>
+    <view>白天不懂黑夜</view>
+    <view>白天不懂黑夜</view>
+    <view>白天不懂黑夜</view>
+    <view>{{form.name}}</view>
+    <view>{{form.age}}</view>
+    <view @tap="summint">确定</view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class Refresh extends wepy.page {
+    
+    config = {
+      navigationBarTitleText: '测试上拉下拉',
+      enablePullDownRefresh: true,
+      backgroundTextStyle: 'dark'
+    }
+    data = {
+      form:{}
+    }
+    
+    methods = {
+      summint(){
+      }
+    }
+
+    onPullDownRefresh() {
+      console.log('下拉刷新列表')
+      setTimeout(function () {
+      // 不加这个方法真机下拉会一直处于刷新状态，无法复位
+      wepy.stopPullDownRefresh()
+      }, 5000)
+    }
+    onReachBottom() {
+      console.log('上拉加载下一页')
+      wepy.showToast({
+      title: '上拉加载下一页',
+      icon: 'none',
+      mask: true,
+      duration: 1000
+      })
+    }
+    onLoad(options){
+			console.log(getApp().form)
+			this.form = getApp().form;
+    }
+
+  }
+</script>
+<style lang="less">
+
+</style>

@@ -1,0 +1,42 @@
+<template>
+  <view class="company">
+    公司介绍
+    <repeat for="{{syncTitle}}" key="index" index="index" item="item">
+      <view class="tab">
+        <text class="title">{{item.name}}</text>
+      </view>
+    </repeat>
+    <!-- <view>{{syncTitle}}</view> -->
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Company extends wepy.component {
+
+    data = {
+
+    }
+     props = {
+      syncTitle: {
+        type: Array,
+        default: 'null'
+      },
+    }
+
+    methods = {
+
+    }
+
+    onLoad(){
+    }
+  }
+</script>
+
+<style lang="less">
+  .company {
+    height: 100%;
+    background-color: orange;
+  }
+</style>

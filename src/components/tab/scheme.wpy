@@ -1,0 +1,27 @@
+<template>
+  <view class="scheme">
+    解决方案
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class List extends wepy.component {
+
+    data = {
+
+    }
+
+    methods = {
+
+    }
+  }
+</script>
+
+<style lang="less">
+  .scheme {
+    height: 200rpx;
+    background-color: #0a0;
+  }
+</style>
